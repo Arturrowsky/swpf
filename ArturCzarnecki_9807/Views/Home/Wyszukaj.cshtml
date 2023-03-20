@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ArturCzarnecki_9807.Fizjoterapeuta>
+
+@{
+    ViewBag.Title = "Randomowy";
+}
+<section class="section-prices">
+    <h2 class="section-header">Nasi fizjoterapeuci</h2>
+    <div class="list-boxs">
+
+        @foreach (var item in Model)
+        {
+            <div class="card starter">
+
+                <div class="head">
+                    @Html.DisplayFor(modelItem => item.Imie)  @Html.DisplayFor(modelItem => item.Nazwisko)
+                </div>
+                <div class="ticket">Numer fizjoterapeuty: @Html.DisplayFor(modelItem => item.NrFizjoterapeuty)</div>
+                <div class="body1">
+                    <p>
+                        Opis:<br />
+                        @Html.DisplayFor(modelItem => item.Opis)
+
+                    </p>
+
+                    <div >@Html.ActionLink("Umów się", "Umow", new { id = item.IdFizjoterapeuty }, new {  @class = "button " }  )</div>
+                </div>
+            </div>
+        
+}
+
+    </div>
+</section>

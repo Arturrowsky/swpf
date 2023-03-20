@@ -1,0 +1,28 @@
+﻿@model ArturCzarnecki_9807.KodPocztowy
+@{
+    ViewBag.Title = "UsunMiejsca";
+    Layout = "~/Views/Layouts/FizjoterapeutaLayout.cshtml";
+}
+
+
+@if (Session["User_ID"] != null)
+{
+    <div class="col" style="margin-left: 30%; text-align: center;">
+        <h3>Czy napewno chcesz usunąć ten kod z Twojego obszaru?</h3>
+        <div>
+
+            <dl class="dl-horizontal">
+                <dd>
+                    @Html.DisplayFor(model => model.KodPocztowy1)
+                </dd>
+            </dl>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <input type="submit" value="Usuń" class="button" />
+                </div>
+            }
+        </div>
+        </div>
+        }

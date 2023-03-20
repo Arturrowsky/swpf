@@ -1,0 +1,81 @@
+﻿@model ArturCzarnecki_9807.Pacjent
+
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Layouts/PacjentLayout.cshtml";
+
+}
+@if (Session["User_ID"] != null)
+{
+    <div class= "col center-font">
+        
+            <dl class="dl-horizontal">
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.Imie)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Imie)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.Nazwisko)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nazwisko)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.KodPocztowy)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.KodPocztowy)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.Miasto)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Miasto)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.Ulica)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Ulica)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.Lokal)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Lokal)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.NrTelefonu)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NrTelefonu)
+                </dd>
+            </dl>
+        </div>
+     
+  
+}
+   

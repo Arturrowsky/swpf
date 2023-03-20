@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SystemSWPFModelStoreContainer" CdmEntityContainer="SystemSWPF">
+    <EntitySetMapping Name="Fizjoterapeuta">
+      <EntityTypeMapping TypeName="SystemSWPFModel.Fizjoterapeuta">
+        <MappingFragment StoreEntitySet="Fizjoterapeuta">
+          <ScalarProperty Name="IdFizjoterapeuty" ColumnName="IdFizjoterapeuty" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Haslo" ColumnName="Haslo" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="NrFizjoterapeuty" ColumnName="NrFizjoterapeuty" />
+          <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+          <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+          <ScalarProperty Name="CzyGabinet" ColumnName="CzyGabinet" />
+          <ScalarProperty Name="NrTel" ColumnName="NrTel" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="IdRoli" ColumnName="IdRoli" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gabinet">
+      <EntityTypeMapping TypeName="SystemSWPFModel.Gabinet">
+        <MappingFragment StoreEntitySet="Gabinet">
+          <ScalarProperty Name="IdGabinetu" ColumnName="IdGabinetu" />
+          <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+          <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+          <ScalarProperty Name="NrTelefonu" ColumnName="NrTelefonu" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="IdFizjoterapeuty" ColumnName="IdFizjoterapeuty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Godziny">
+      <EntityTypeMapping TypeName="SystemSWPFModel.Godziny">
+        <MappingFragment StoreEntitySet="Godziny">
+          <ScalarProperty Name="IdGodziny" ColumnName="IdGodziny" />
+          <ScalarProperty Name="Godzina" ColumnName="Godzina" />
+          <ScalarProperty Name="IdFizjoterapeuty" ColumnName="IdFizjoterapeuty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KodPocztowy">
+      <EntityTypeMapping TypeName="SystemSWPFModel.KodPocztowy">
+        <MappingFragment StoreEntitySet="KodPocztowy">
+          <ScalarProperty Name="IdKodPocztowy" ColumnName="IdKodPocztowy" />
+          <ScalarProperty Name="KodPocztowy1" ColumnName="KodPocztowy" />
+          <ScalarProperty Name="IdFizjoterapeuty" ColumnName="IdFizjoterapeuty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pacjent">
+      <EntityTypeMapping TypeName="SystemSWPFModel.Pacjent">
+        <MappingFragment StoreEntitySet="Pacjent">
+          <ScalarProperty Name="IdPacjenta" ColumnName="IdPacjenta" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Haslo" ColumnName="Haslo" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+          <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="Lokal" ColumnName="Lokal" />
+          <ScalarProperty Name="NrTelefonu" ColumnName="NrTelefonu" />
+          <ScalarProperty Name="IdRoli" ColumnName="IdRoli" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rola">
+      <EntityTypeMapping TypeName="SystemSWPFModel.Rola">
+        <MappingFragment StoreEntitySet="Rola">
+          <ScalarProperty Name="IdRoli" ColumnName="IdRoli" />
+          <ScalarProperty Name="Rola1" ColumnName="Rola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SystemSWPFModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wizyta">
+      <EntityTypeMapping TypeName="SystemSWPFModel.Wizyta">
+        <MappingFragment StoreEntitySet="Wizyta">
+          <ScalarProperty Name="IdWizyty" ColumnName="IdWizyty" />
+          <ScalarProperty Name="IdFizjoterapeuty" ColumnName="IdFizjoterapeuty" />
+          <ScalarProperty Name="IdPacjenta" ColumnName="IdPacjenta" />
+          <ScalarProperty Name="Godzina" ColumnName="Godzina" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

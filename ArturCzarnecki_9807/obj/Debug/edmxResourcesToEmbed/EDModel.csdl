@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SystemSWPFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Fizjoterapeuta">
+    <Key>
+      <PropertyRef Name="IdFizjoterapeuty" />
+    </Key>
+    <Property Name="IdFizjoterapeuty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Haslo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Imie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwisko" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NrFizjoterapeuty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Miasto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CzyGabinet" Type="Boolean" Nullable="false" />
+    <Property Name="NrTel" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IdRoli" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Rola" Relationship="Self.FK_Fizjoterapeuta_Rola" FromRole="Fizjoterapeuta" ToRole="Rola" />
+    <NavigationProperty Name="Gabinets" Relationship="Self.FK_Gabinet_Fizjoterapeuta" FromRole="Fizjoterapeuta" ToRole="Gabinet" />
+    <NavigationProperty Name="Godzinies" Relationship="Self.FK_Godziny_Fizjoterapeuta" FromRole="Fizjoterapeuta" ToRole="Godziny" />
+    <NavigationProperty Name="KodPocztowies" Relationship="Self.FK_KodPocztowy_Fizjoterapeuta" FromRole="Fizjoterapeuta" ToRole="KodPocztowy" />
+    <NavigationProperty Name="Wizytas" Relationship="Self.FK_Wizyta_Fizjoterapeuta" FromRole="Fizjoterapeuta" ToRole="Wizyta" />
+  </EntityType>
+  <EntityType Name="Gabinet">
+    <Key>
+      <PropertyRef Name="IdGabinetu" />
+    </Key>
+    <Property Name="IdGabinetu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Miasto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ulica" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NrLokalu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NrTelefonu" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IdFizjoterapeuty" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Fizjoterapeuta" Relationship="Self.FK_Gabinet_Fizjoterapeuta" FromRole="Gabinet" ToRole="Fizjoterapeuta" />
+  </EntityType>
+  <EntityType Name="Godziny">
+    <Key>
+      <PropertyRef Name="IdGodziny" />
+    </Key>
+    <Property Name="IdGodziny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Godzina" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdFizjoterapeuty" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Fizjoterapeuta" Relationship="Self.FK_Godziny_Fizjoterapeuta" FromRole="Godziny" ToRole="Fizjoterapeuta" />
+  </EntityType>
+  <EntityType Name="KodPocztowy">
+    <Key>
+      <PropertyRef Name="IdKodPocztowy" />
+    </Key>
+    <Property Name="IdKodPocztowy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KodPocztowy1" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdFizjoterapeuty" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Fizjoterapeuta" Relationship="Self.FK_KodPocztowy_Fizjoterapeuta" FromRole="KodPocztowy" ToRole="Fizjoterapeuta" />
+  </EntityType>
+  <EntityType Name="Pacjent">
+    <Key>
+      <PropertyRef Name="IdPacjenta" />
+    </Key>
+    <Property Name="IdPacjenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Haslo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Imie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nazwisko" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Miasto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ulica" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Lokal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NrTelefonu" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdRoli" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Rola" Relationship="Self.FK_Pacjent_Rola" FromRole="Pacjent" ToRole="Rola" />
+    <NavigationProperty Name="Wizytas" Relationship="Self.FK_Wizyta_Pacjent" FromRole="Pacjent" ToRole="Wizyta" />
+  </EntityType>
+  <EntityType Name="Rola">
+    <Key>
+      <PropertyRef Name="IdRoli" />
+    </Key>
+    <Property Name="IdRoli" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rola1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Fizjoterapeutas" Relationship="Self.FK_Fizjoterapeuta_Rola" FromRole="Rola" ToRole="Fizjoterapeuta" />
+    <NavigationProperty Name="Pacjents" Relationship="Self.FK_Pacjent_Rola" FromRole="Rola" ToRole="Pacjent" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Wizyta">
+    <Key>
+      <PropertyRef Name="IdWizyty" />
+    </Key>
+    <Property Name="IdWizyty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdFizjoterapeuty" Type="Int32" Nullable="false" />
+    <Property Name="IdPacjenta" Type="Int32" Nullable="false" />
+    <Property Name="Godzina" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Fizjoterapeuta" Relationship="Self.FK_Wizyta_Fizjoterapeuta" FromRole="Wizyta" ToRole="Fizjoterapeuta" />
+    <NavigationProperty Name="Pacjent" Relationship="Self.FK_Wizyta_Pacjent" FromRole="Wizyta" ToRole="Pacjent" />
+  </EntityType>
+  <Association Name="FK_Fizjoterapeuta_Rola">
+    <End Role="Rola" Type="Self.Rola" Multiplicity="1" />
+    <End Role="Fizjoterapeuta" Type="Self.Fizjoterapeuta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rola">
+        <PropertyRef Name="IdRoli" />
+      </Principal>
+      <Dependent Role="Fizjoterapeuta">
+        <PropertyRef Name="IdRoli" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gabinet_Fizjoterapeuta">
+    <End Role="Fizjoterapeuta" Type="Self.Fizjoterapeuta" Multiplicity="1" />
+    <End Role="Gabinet" Type="Self.Gabinet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fizjoterapeuta">
+        <PropertyRef Name="IdFizjoterapeuty" />
+      </Principal>
+      <Dependent Role="Gabinet">
+        <PropertyRef Name="IdFizjoterapeuty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Godziny_Fizjoterapeuta">
+    <End Role="Fizjoterapeuta" Type="Self.Fizjoterapeuta" Multiplicity="1" />
+    <End Role="Godziny" Type="Self.Godziny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fizjoterapeuta">
+        <PropertyRef Name="IdFizjoterapeuty" />
+      </Principal>
+      <Dependent Role="Godziny">
+        <PropertyRef Name="IdFizjoterapeuty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KodPocztowy_Fizjoterapeuta">
+    <End Role="Fizjoterapeuta" Type="Self.Fizjoterapeuta" Multiplicity="1" />
+    <End Role="KodPocztowy" Type="Self.KodPocztowy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fizjoterapeuta">
+        <PropertyRef Name="IdFizjoterapeuty" />
+      </Principal>
+      <Dependent Role="KodPocztowy">
+        <PropertyRef Name="IdFizjoterapeuty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wizyta_Fizjoterapeuta">
+    <End Role="Fizjoterapeuta" Type="Self.Fizjoterapeuta" Multiplicity="1" />
+    <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fizjoterapeuta">
+        <PropertyRef Name="IdFizjoterapeuty" />
+      </Principal>
+      <Dependent Role="Wizyta">
+        <PropertyRef Name="IdFizjoterapeuty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pacjent_Rola">
+    <End Role="Rola" Type="Self.Rola" Multiplicity="1" />
+    <End Role="Pacjent" Type="Self.Pacjent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rola">
+        <PropertyRef Name="IdRoli" />
+      </Principal>
+      <Dependent Role="Pacjent">
+        <PropertyRef Name="IdRoli" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wizyta_Pacjent">
+    <End Role="Pacjent" Type="Self.Pacjent" Multiplicity="1" />
+    <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacjent">
+        <PropertyRef Name="IdPacjenta" />
+      </Principal>
+      <Dependent Role="Wizyta">
+        <PropertyRef Name="IdPacjenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SystemSWPFEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Fizjoterapeutas" EntityType="Self.Fizjoterapeuta" />
+    <EntitySet Name="Gabinets" EntityType="Self.Gabinet" />
+    <EntitySet Name="Godzinies" EntityType="Self.Godziny" />
+    <EntitySet Name="KodPocztowies" EntityType="Self.KodPocztowy" />
+    <EntitySet Name="Pacjents" EntityType="Self.Pacjent" />
+    <EntitySet Name="Rolas" EntityType="Self.Rola" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Wizytas" EntityType="Self.Wizyta" />
+    <AssociationSet Name="FK_Fizjoterapeuta_Rola" Association="Self.FK_Fizjoterapeuta_Rola">
+      <End Role="Rola" EntitySet="Rolas" />
+      <End Role="Fizjoterapeuta" EntitySet="Fizjoterapeutas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gabinet_Fizjoterapeuta" Association="Self.FK_Gabinet_Fizjoterapeuta">
+      <End Role="Fizjoterapeuta" EntitySet="Fizjoterapeutas" />
+      <End Role="Gabinet" EntitySet="Gabinets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Godziny_Fizjoterapeuta" Association="Self.FK_Godziny_Fizjoterapeuta">
+      <End Role="Fizjoterapeuta" EntitySet="Fizjoterapeutas" />
+      <End Role="Godziny" EntitySet="Godzinies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KodPocztowy_Fizjoterapeuta" Association="Self.FK_KodPocztowy_Fizjoterapeuta">
+      <End Role="Fizjoterapeuta" EntitySet="Fizjoterapeutas" />
+      <End Role="KodPocztowy" EntitySet="KodPocztowies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wizyta_Fizjoterapeuta" Association="Self.FK_Wizyta_Fizjoterapeuta">
+      <End Role="Fizjoterapeuta" EntitySet="Fizjoterapeutas" />
+      <End Role="Wizyta" EntitySet="Wizytas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pacjent_Rola" Association="Self.FK_Pacjent_Rola">
+      <End Role="Rola" EntitySet="Rolas" />
+      <End Role="Pacjent" EntitySet="Pacjents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wizyta_Pacjent" Association="Self.FK_Wizyta_Pacjent">
+      <End Role="Pacjent" EntitySet="Pacjents" />
+      <End Role="Wizyta" EntitySet="Wizytas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

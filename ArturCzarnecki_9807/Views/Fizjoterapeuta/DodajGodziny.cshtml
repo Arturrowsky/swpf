@@ -1,0 +1,34 @@
+﻿@model ArturCzarnecki_9807.Godziny
+
+@{
+    ViewBag.Title = "DodajGodziny";
+    Layout = "~/Views/Layouts/FizjoterapeutaLayout.cshtml";
+}
+@if (Session["User_ID"] != null)
+{
+    <div class="col" style="margin-left: 30%; text-align: center;">
+        <h2>Dodaj godziny do Twojego harmonogramu</h2>
+
+
+        @using (Html.BeginForm())
+        {
+        @Html.AntiForgeryToken()
+        <div class="">
+            <h4>Godzina</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="">
+                <div class="">
+                    @Html.EditorFor(model => model.Godzina, new { htmlAttributes = new { @class = "textboxs" } })
+                    @Html.ValidationMessageFor(model => model.Godzina, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    <input type="submit" value="Dodaj" class="button" />
+                </div>
+            </div>
+        </div>
+        }
+        </div>
+        }

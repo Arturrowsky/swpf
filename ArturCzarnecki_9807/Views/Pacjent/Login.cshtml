@@ -1,0 +1,41 @@
+﻿
+@model ArturCzarnecki_9807.Pacjent
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Layouts/PacjentLayout.cshtml";
+}
+@using (Html.BeginForm("Login", "Pacjent", FormMethod.Post))
+{
+   
+<div class="login-form">
+    <h1>Zaloguj się</h1>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @if (ViewBag.Message != null)
+    {
+        <div style="border: 1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <table class="logintable">
+        <tr class="logi">
+        <tr>
+            <td>@Html.LabelFor(a => a.Email, new { htmlAttributes = new { @class = "labels" } })</td>
+            <td>@Html.TextBoxFor(a => a.Email, new { htmlAttributes = new { @class = "textboxs" } })</td>
+            <td>@Html.ValidationMessageFor(a => a.Email)</td>
+        </tr>
+        <tr class="passw">
+            <td>@Html.LabelFor(a => a.Haslo, new { htmlAttributes = new { @class = "labels" } })</td>
+            <td>@Html.PasswordFor(a => a.Haslo, new { htmlAttributes = new { @class = "textboxs" } })</td>
+            <td>@Html.ValidationMessageFor(a => a.Haslo)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Zaloguj" class="button" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+    }

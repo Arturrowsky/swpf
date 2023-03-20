@@ -1,0 +1,42 @@
+﻿@model ArturCzarnecki_9807.Models.Wyszukaj
+
+
+@{
+    ViewBag.Title = "Randomowy";
+    
+}
+
+<div class="container-index col" style="width:100%" >
+    <div class="items">
+        <p><b> Imię i nazwisko:</b></p>
+        @Html.DisplayFor(modelItem => modelItem.Fizjoterapeuta.Imie, new { htmlAttributes = new { @class = "labels" } })
+        @Html.DisplayFor(modelItem => modelItem.Fizjoterapeuta.Nazwisko, new { htmlAttributes = new { @class = "labels" } })
+    </div >
+    <div class="items">
+        <p><b>O mnie:</b></p>
+        @Html.DisplayFor(modelItem => modelItem.Fizjoterapeuta.Opis, new { htmlAttributes = new { @class = "labels" } })
+    </div>
+    <div class="items">
+        <p><b>Jeśli masz pytania zadzwoń:</b></p>
+        @Html.DisplayFor(modelItem => modelItem.Fizjoterapeuta.NrTel, new { htmlAttributes = new { @class = "labels" } })
+    </div>
+
+    <div class="items">
+        <p><b> Obszary w które dojeżdżam:</b></p>
+        @foreach (var item in Model.KodPocztowy)
+        {
+            ViewBag.KodPocztowy = item.KodPocztowy1;
+            @ViewBag.KodPocztowy;
+            <br />
+        }
+    </div>
+
+    <div class="items">
+        <p><b> Chcesz umówić się na wizytę?</b></p> <br />
+        <a href="@Url.Action("Login", "Pacjent")" class="button">Zaloguj się</a>
+        <br /> <br /> <p><b>lub</b></p>,<br />   
+        <a href="@Url.Action("Rejestracja", "Pacjent")" class="button">Załóż konto</a>
+    </div>
+
+</div>
+  

@@ -1,0 +1,112 @@
+﻿@model ArturCzarnecki_9807.Wizyta
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Layouts/PacjentLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="col" style="margin-left:30%; text-align:center;">
+    <h2>Wizyta</h2>
+    <hr />
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Godzina, "Godzina", htmlAttributes: new { @class = "labels" })
+        <div class="col-md-10">
+            @Html.DropDownList("Godzina", null, htmlAttributes: new { @class = "text-boxs" })
+            @Html.ValidationMessageFor(model => model.Godzina, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="items">
+        <p>Wybierz dzień wizyty:</p>
+        <input type="date" name="Data">
+    </div>
+
+
+    <div class="form-group">
+        Opisz swój stan
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Opis, new { htmlAttributes = new { @class = "textboxs" } })
+            @Html.ValidationMessageFor(model => model.Opis, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Umów się" class="button" />
+        </div>
+    </div>
+</div>
+}
+
+
+
+
+
+
+
+@*@model ArturCzarnecki_9807.Models.Wyszukaj
+
+
+    @{
+        ViewBag.Title = "Randomowy";
+        Layout = "~/Views/Layouts/PacjentLayout.cshtml";
+
+    }
+    @if (Session["User_ID"] != null)
+    {
+
+    <div class="container-index col" style="width:100%">
+        <div class="items">
+            <p> Imię i nazwisko:</p>
+            @Html.DisplayFor(modelItem => modelItem.Fizjoterapeuta.Imie, new { htmlAttributes = new { @class = "labels" } })
+            @Html.DisplayFor(modelItem => modelItem.Fizjoterapeuta.Nazwisko, new { htmlAttributes = new { @class = "labels" } })
+        </div>
+        <div class="items">
+            <p>O mnie:</p>
+            @Html.DisplayFor(modelItem => modelItem.Fizjoterapeuta.Opis, new { htmlAttributes = new { @class = "labels" } })
+        </div>
+        <div class="items">
+            <p>Jeśli masz pytania zadzwoń:</p>
+            @Html.DisplayFor(modelItem => modelItem.Fizjoterapeuta.NrTel, new { htmlAttributes = new { @class = "labels" } })
+        </div>
+
+        <div class="items">
+            <p> Obszary w które dojeżdżam:</p>
+            @foreach (var item in Model.KodPocztowy)
+            {
+                ViewBag.KodPocztowy = item.KodPocztowy1;
+                @ViewBag.KodPocztowy;
+                <br />
+            }
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="items">
+                <p>Wybierz dzień wizyty:</p>
+                <input type="date" name="Data">
+            </div>
+            <div class="items">
+                <p>Wybierz godzinę wizyty:</p>
+                @Html.DropDownList("IdGodziny", null, htmlAttributes: new { @class = "form-control" })
+
+
+            </div>
+
+            <div class="reg-item">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Zapisz się!" class="button" />
+                </div>
+
+            </div>
+        }
+    </div>
+        }*@
+

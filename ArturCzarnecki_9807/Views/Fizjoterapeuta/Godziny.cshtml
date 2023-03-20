@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ArturCzarnecki_9807.Godziny>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/FizjoterapeutaLayout.cshtml";
+}
+
+@if (Session["User_ID"] != null)
+{
+<div class="col" style="margin-left: 30%; text-align: center;">
+    <h2>Twój harmonogram</h2><br /><br />
+
+    <div>@Html.ActionLink("Dodaj godziny", "DodajGodziny", new { }, new { @class = "button" })</div><br />
+
+
+    <table class="table">
+        @foreach (var item in Model)
+        {
+            if (item.IdFizjoterapeuty == Convert.ToInt32(Session["User_ID"]))
+            {
+
+                <tr>
+                    <br />
+
+                    <td>
+                        <br /><br />
+                        @Html.DisplayFor(modelItem => item.Godzina, new { htmlAttributes = new { @class = "labels" } })
+                    </td>
+
+                    <td>
+                        <br /><br />
+                        @Html.ActionLink("Usuń", "UsunGodziny", new { id = item.IdGodziny }, new { @class = "button " })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+</div>
+        }

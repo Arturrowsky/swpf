@@ -1,0 +1,94 @@
+﻿@model IEnumerable<ArturCzarnecki_9807.Wizyta>
+
+@{
+    ViewBag.Title = "Wizyty";
+    Layout = "~/Views/Layouts/FizjoterapeutaLayout.cshtml";
+}
+
+<h2 style="text-align:center;">Wizyty</h2>
+<div class="col" style="width:100%">
+    <table class="col1">
+        <tr style="text-align:left">
+
+            <th >
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Godzina)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Pacjent.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacjent.NrTelefonu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacjent.Imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacjent.Nazwisko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacjent.Miasto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacjent.Ulica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacjent.Lokal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Godzina)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Pacjent.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pacjent.NrTelefonu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pacjent.Imie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pacjent.Nazwisko)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pacjent.Miasto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pacjent.Ulica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pacjent.Lokal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edytuj", new { id = item.IdWizyty }, new {@class="button"})
+           
+        </td>
+
+
+    </tr>
+        }
+
+    </table>
+</div>

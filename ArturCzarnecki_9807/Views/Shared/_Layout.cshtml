@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - moja aplikacja platformy ASP.NET</title>
+    @Styles.Render("~/styles/MainStyles.css")
+
+</head>
+<body>
+    <div class="navigation">
+        <ul>
+            <li><a href="@Url.Action("Index", "Home")" class="nav-el">Strona główna</a></li>
+            <li><a href="@Url.Action("Wyszukaj", "Home")" class="nav-el">Wyszukaj</a></li>
+            <li><a href="@Url.Action("Informacja", "Home")" class="nav-el">Informacje</a></li>
+        </ul>
+    </div>
+    @RenderBody()
+    <footer>
+        <p>&copy; @DateTime.Now - Artur Czarnecki, wszelkie prawa zastrzeżone</p>
+    </footer>
+</body>
+</html>

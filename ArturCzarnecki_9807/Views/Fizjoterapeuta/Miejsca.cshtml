@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ArturCzarnecki_9807.KodPocztowy>
+
+@{
+    ViewBag.Title = "Miejsca";
+    Layout = "~/Views/Layouts/FizjoterapeutaLayout.cshtml";
+}
+
+@if (Session["User_ID"] != null)
+{
+<div class="col" style="margin-left:30%; text-align:center;">
+    <h2>Twój obszar</h2><br /><br />
+
+
+    <div class=""> @Html.ActionLink("Dodaj kod pocztowy", "DodajMiejsca", new { }, new { @class = "button" })</div>
+
+    <table class="table">
+        @foreach (var item in Model)
+        {
+            if (item.IdFizjoterapeuty == Convert.ToInt32(Session["User_ID"]))
+            {
+        <tr>
+            <br />
+            <td>
+                <br /><br />
+                @Html.DisplayFor(modelItem => item.KodPocztowy1, new { htmlAttributes = new { @class = "labels" } })
+            </td>
+
+            <td>
+                <br /><br />
+                @Html.ActionLink("Usuń", "UsunMiejsca", new { id = item.IdKodPocztowy }, new { @class = "button" })
+            </td>
+        </tr>
+            }
+        }
+
+    </table>
+</div>
+        }

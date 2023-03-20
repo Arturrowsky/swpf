@@ -1,0 +1,97 @@
+﻿@model ArturCzarnecki_9807.Fizjoterapeuta
+
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Layouts/FizjoterapeutaLayout.cshtml";
+
+}
+
+<div>
+
+
+    @if (Session["User_ID"] != null)
+    {
+        <div class="col center-font">
+          
+           
+            <dl class="dl-horizontal">
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+               
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.Imie)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Imie)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.Nazwisko)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nazwisko)
+                </dd>
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.NrFizjoterapeuty)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NrFizjoterapeuty)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.KodPocztowy)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.KodPocztowy)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.Miasto)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Miasto)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.CzyGabinet)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CzyGabinet)
+                </dd>
+
+
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.NrTel)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NrTel)
+                </dd>
+
+                <dt class="dt">
+                    @Html.DisplayNameFor(model => model.Opis)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Opis)
+                </dd>
+
+            </dl>
+        </div>
+      }
+
+</div>

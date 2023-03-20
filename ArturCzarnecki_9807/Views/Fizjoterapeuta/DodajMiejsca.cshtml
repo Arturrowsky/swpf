@@ -1,0 +1,34 @@
+﻿@model ArturCzarnecki_9807.KodPocztowy
+
+@{
+    ViewBag.Title = "DodajMiejsca";
+    Layout = "~/Views/Layouts/FizjoterapeutaLayout.cshtml";
+}
+@if (Session["User_ID"] != null)
+{
+    <div class="col" style="margin-left: 30%; text-align: center;">
+        <h2>Dodaj obszar w którego obrębie możesz dotrzeć na wizytę!</h2>
+
+
+       @using (Html.BeginForm())
+        {
+        @Html.AntiForgeryToken()
+        <div class="">
+            <h4>Kod Pocztowy:</h4>
+          
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="">
+                <div class="">
+                    @Html.EditorFor(model => model.KodPocztowy1, new { htmlAttributes = new { @class = "textboxs" } })
+                    @Html.ValidationMessageFor(model => model.KodPocztowy1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    <input type="submit" value="Dodaj" class="button" />
+                </div>
+            </div>
+        </div>
+        }
+        </div>
+        }
